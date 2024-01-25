@@ -4,8 +4,6 @@ function getComputerChoice() {
 }
 
 function playRound(computerSelection, playerSelection) {
-    console.log(computerSelection);
-    console.log(playerSelection)
     playerSelection.toLowerCase()
     play = true;
     while (play == true){
@@ -75,27 +73,27 @@ function game(){
     var i = 0;
     var playerScore = 0;
     while (i < 5){
-        let playerSelection = prompt("Enter your choice: ", "Rock / Paper / Scissors");
-        result = game(getComputerChoice(), playerSelection);
+        let playerSelection = "rock"
+        result = playRound(getComputerChoice(), playerSelection);
         if (result == 1){
-            alert("Your Win Round " + String(parseInt(i+1)) + "!");
+            console.log("Your Win Round " + String(parseInt(i+1)) + "!");
             i += 1;
-            player += 1;
+            playerScore += 1;
         }
         else if (result == -1){
-            alert("Computer Wins Round " + String(parseInt(i+1)) + "!");
+            console.log("Computer Wins Round " + String(parseInt(i+1)) + "!");
             i += 1;
         }
         else if (result == 10){
-            alert("Please enter a valid input and try again!");
+            console.log("Please enter a valid input and try again!");
         }
     }
 
-    if (playerScore > 1){   
-        alert("You Win the Game!")
+    if (playerScore > 2){   
+        console.log("You Win the Game!")
     }
     else{
-        alert("Try Again Later, Computer Wins!");
+        console.log("Try Again Later, Computer Wins!");
     }
 }
 
