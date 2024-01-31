@@ -4,6 +4,8 @@ function getComputerChoice() {
 }
 
 function playRound(computerSelection, playerSelection) {
+    console.log(`Computer Selection - ${computerSelection}`);
+    console.log(`Player Selection -  ${playerSelection}`);
     playerSelection.toLowerCase()
     play = true;
     while (play == true){
@@ -68,33 +70,10 @@ function playRound(computerSelection, playerSelection) {
 
 }
 
+let btnRock = document.querySelector('#rock');
+let btnPaper = document.querySelector('#paper');
+let btnScissor = document.querySelector('#scissor');
 
-function game(){
-    var i = 0;
-    var playerScore = 0;
-    while (i < 5){
-        let playerSelection = "rock"
-        result = playRound(getComputerChoice(), playerSelection);
-        if (result == 1){
-            console.log("Your Win Round " + String(parseInt(i+1)) + "!");
-            i += 1;
-            playerScore += 1;
-        }
-        else if (result == -1){
-            console.log("Computer Wins Round " + String(parseInt(i+1)) + "!");
-            i += 1;
-        }
-        else if (result == 10){
-            console.log("Please enter a valid input and try again!");
-        }
-    }
-
-    if (playerScore > 2){   
-        console.log("You Win the Game!")
-    }
-    else{
-        console.log("Try Again Later, Computer Wins!");
-    }
-}
-
-game();
+btnPaper.addEventListener('click',() => {console.log(playRound(getComputerChoice(), btnPaper.textContent))});
+btnRock.addEventListener('click',() => {console.log(playRound(getComputerChoice(), btnRock.textContent))});
+btnScissor.addEventListener('click',() => {console.log(playRound(getComputerChoice(), btnScissor.textContent))});
