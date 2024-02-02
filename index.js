@@ -4,9 +4,9 @@ function getComputerChoice() {
 }
 
 function playRound(computerSelection, playerSelection) {
+    playerSelection = playerSelection.toLowerCase();
     console.log(`Computer Selection - ${computerSelection}`);
     console.log(`Player Selection -  ${playerSelection}`);
-    playerSelection.toLowerCase()
     play = true;
     while (play == true){
 
@@ -74,6 +74,69 @@ let btnRock = document.querySelector('#rock');
 let btnPaper = document.querySelector('#paper');
 let btnScissor = document.querySelector('#scissor');
 
-btnPaper.addEventListener('click',() => {console.log(playRound(getComputerChoice(), btnPaper.textContent))});
-btnRock.addEventListener('click',() => {console.log(playRound(getComputerChoice(), btnRock.textContent))});
-btnScissor.addEventListener('click',() => {console.log(playRound(getComputerChoice(), btnScissor.textContent))});
+
+btnPaper.addEventListener('click',() => {
+    let result = playRound(getComputerChoice(), btnPaper.textContent);
+    switch(result){
+        case 0:
+            var resultP = document.createElement('p');
+            resultP.textContent = "It's a draw!";
+            resultDiv.appendChild(resultP);
+            break;
+        case 1:
+            var resultP = document.createElement('p');
+            resultP.textContent = "You Win!";
+            resultDiv.appendChild(resultP);
+            break;
+        case -1:
+            var resultP = document.createElement('p');
+            resultP.textContent = "You lose!";
+            resultDiv.appendChild(resultP);
+            break;
+    }
+});
+
+btnRock.addEventListener('click',() => {
+    let result = playRound(getComputerChoice(), btnRock.textContent);
+    switch(result){
+        case 0:
+            var resultP = document.createElement('p');
+            resultP.textContent = "It's a draw!";
+            resultDiv.appendChild(resultP);
+            break;
+        case 1:
+            var resultP = document.createElement('p');
+            resultP.textContent = "You Win!";
+            resultDiv.appendChild(resultP);
+            break;
+        case -1:
+            var resultP = document.createElement('p');
+            resultP.textContent = "You lose!";
+            resultDiv.appendChild(resultP);
+            break;
+}});
+
+btnScissor.addEventListener('click',() => {
+    let result = playRound(getComputerChoice(), btnRock.textContent);
+    switch(result){
+        case 0:
+            var resultP = document.createElement('p');
+            resultP.textContent = "It's a draw!";
+            resultDiv.appendChild(resultP);
+            break;
+        case 1:
+            var resultP = document.createElement('p');
+            resultP.textContent = "You Win!";
+            resultDiv.appendChild(resultP);
+            break;
+        case -1:
+            var resultP = document.createElement('p');
+            resultP.textContent = "You lose!";
+            resultDiv.appendChild(resultP);
+            break;
+}});
+
+let resultDiv = document.createElement('div');
+resultDiv.setAttribute('class','result');
+
+document.querySelector('body').insertBefore(resultDiv, document.querySelector('script'));
