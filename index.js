@@ -65,100 +65,123 @@ let btnScissor = document.querySelector('#scissor');
 let playerScore = 0;
 let computerScore = 0;
 let i = 0;
+var resultP = document.createElement('p');
 
+btnPaper.addEventListener('click',() => {
+    let playerChoice = btnPaper.textContent;
+    let computerChoice = getComputerChoice();
+    let result = playRound(computerChoice, btnPaper.textContent);
+    computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1,);
+    console.log(computerChoice,playerChoice);
 
-function game(){
-    btnPaper.addEventListener('click',() => {
-        let playerChoice = btnPaper.textContent;
-        let computerChoice = getComputerChoice();
-        let result = playRound(computerChoice, btnPaper.textContent);
-        computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1,);
-        console.log(computerChoice,playerChoice);
+    if ((playerScore < 5) && (computerScore < 5)){
         switch(result){
             case 0:
                 i += 1;
-                var resultP = document.createElement('p');
                 resultP.innerHTML = `You Played: ${playerChoice} <br>Computer Played: ${computerChoice}.<br>It's a draw! 
                 <br>Score: <br>Player Score: ${playerScore} <br>Computer Score: ${computerScore}`;
                 resultDiv.appendChild(resultP);
                 break;
             case 1:
-                var resultP = document.createElement('p');
                 playerScore += 1;
                 resultP.innerHTML = `You Played: ${playerChoice} <br> Computer Played: ${computerChoice}. <br>You Win!
                 <br>Score: <br>Player Score: ${playerScore} <br>Computer Score: ${computerScore}`;
                 resultDiv.appendChild(resultP);
                 break;
             case -1:
-                var resultP = document.createElement('p');
                 computerScore += 1;
                 resultP.innerHTML = `You Played: ${playerChoice} <br>Computer Played: ${computerChoice}. <br>You lose!
                 <br>Score: <br>Player Score: ${playerScore} <br>Computer Score: ${computerScore}`;
                 resultDiv.appendChild(resultP);
                 break;
         }
-    });
+    }
+    if(playerScore === 5){
+        resultP.innerHTML += `<br>You Win the Game!`;
+        resultDiv.appendChild(resultP);
+    }
+    else if (computerScore === 5){
+        resultP.innerHTML += `<br>Computer Wins the Game!`;
+        resultDiv.appendChild(resultP);
+    }
 
-    btnRock.addEventListener('click',() => {
-        let playerChoice = btnRock.textContent
-        let computerChoice = getComputerChoice();
-        let result = playRound(computerChoice, playerChoice);
-        computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1,);
-        console.log(computerChoice,playerChoice);
+    
+});
+
+btnRock.addEventListener('click',() => {
+    let playerChoice = btnRock.textContent
+    let computerChoice = getComputerChoice();
+    let result = playRound(computerChoice, playerChoice);
+    computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1,);
+    console.log(computerChoice,playerChoice);
+    if ((playerScore < 5) && (computerScore < 5)){
         switch(result){
             case 0:
                 i += 1;
-                var resultP = document.createElement('p');
                 resultP.innerHTML = `You Played: ${playerChoice} <br>Computer Played: ${computerChoice}.<br>It's a draw! 
                 <br>Score: <br>Player Score: ${playerScore} <br>Computer Score: ${computerScore}`;
                 resultDiv.appendChild(resultP);
                 break;
             case 1:
-                var resultP = document.createElement('p');
                 playerScore += 1;
                 resultP.innerHTML = `You Played: ${playerChoice} <br> Computer Played: ${computerChoice}. <br>You Win!
                 <br>Score: <br>Player Score: ${playerScore} <br>Computer Score: ${computerScore}`;
                 resultDiv.appendChild(resultP);
                 break;
             case -1:
-                var resultP = document.createElement('p');
                 computerScore += 1;
                 resultP.innerHTML = `You Played: ${playerChoice} <br>Computer Played: ${computerChoice}. <br>You lose!
                 <br>Score: <br>Player Score: ${playerScore} <br>Computer Score: ${computerScore}`;
                 resultDiv.appendChild(resultP);
                 break;
+        }
+    }
+    if(playerScore === 5){
+        resultP.innerHTML += `<br>You Win the Game!`;
+        resultDiv.appendChild(resultP);
+    }
+    else if (computerScore === 5){
+        resultP.innerHTML += `<br>Computer Wins the Game!`;
+        resultDiv.appendChild(resultP);
     }});
 
-    btnScissor.addEventListener('click',() => {
-        let playerChoice = btnScissor.textContent
-        let computerChoice = getComputerChoice();
-        let result = playRound(computerChoice, playerChoice);
-        computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1,);
-        console.log(computerChoice,playerChoice);
+btnScissor.addEventListener('click',() => {
+    let playerChoice = btnScissor.textContent
+    let computerChoice = getComputerChoice();
+    let result = playRound(computerChoice, playerChoice);
+    computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1,);
+    console.log(computerChoice,playerChoice);
+    if ((playerScore < 5) && (computerScore < 5)){
         switch(result){
             case 0:
                 i += 1;
-                var resultP = document.createElement('p');
-                resultP.innerHTML = `You Played: ${playerChoice} <br>Computer Played: ${computerChoice}.<br>It's a draw!
+                resultP.innerHTML = `You Played: ${playerChoice} <br>Computer Played: ${computerChoice}.<br>It's a draw! 
                 <br>Score: <br>Player Score: ${playerScore} <br>Computer Score: ${computerScore}`;
                 resultDiv.appendChild(resultP);
                 break;
             case 1:
-                var resultP = document.createElement('p');
                 playerScore += 1;
                 resultP.innerHTML = `You Played: ${playerChoice} <br> Computer Played: ${computerChoice}. <br>You Win!
                 <br>Score: <br>Player Score: ${playerScore} <br>Computer Score: ${computerScore}`;
-                resultDiv.appendChild(resultP);            
+                resultDiv.appendChild(resultP);
                 break;
             case -1:
-                var resultP = document.createElement('p');
                 computerScore += 1;
                 resultP.innerHTML = `You Played: ${playerChoice} <br>Computer Played: ${computerChoice}. <br>You lose!
                 <br>Score: <br>Player Score: ${playerScore} <br>Computer Score: ${computerScore}`;
                 resultDiv.appendChild(resultP);
                 break;
+        }
+    }
+    if(playerScore === 5){
+        resultP.innerHTML += `<br>You Win the Game!`;
+        resultDiv.appendChild(resultP);
+    }
+    else if (computerScore === 5){
+        resultP.innerHTML += `<br>Computer Wins the Game!`;
+        resultDiv.appendChild(resultP);
     }});
-}
+
 
 if (computerScore === 5){
     var finalResult = document.createElement('p');
